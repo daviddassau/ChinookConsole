@@ -66,8 +66,8 @@ namespace ChinookConsole.DataAccess
                     {
                         Total = double.Parse(reader["Total"].ToString()),
                         SalesAgent = reader["Sales Agent"].ToString(),
-                        BillingCountry = reader["BillingCountry"].ToString(),
-                        CustomerName = reader["Customer Name"].ToString()
+                        BillingCountry = reader["country"].ToString(),
+                        CustomerName = reader["name"].ToString()
                     };
 
                     invoiceData.Add(invoice);

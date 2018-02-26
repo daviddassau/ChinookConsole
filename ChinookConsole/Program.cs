@@ -28,7 +28,14 @@ namespace ChinookConsole
 
             //Provide a query that shows the Invoice Total, Customer name, Country and Sale Agent name for all invoices.
 
+            var invoiceData = invoiceQuery.GetInvoiceTotalCustomerNameCountryAndSalesAgent();
 
+            Console.WriteLine("Here's a list of customer names, their country, and the sales agent and invoice total");
+
+            foreach (var data in invoiceData)
+            {
+                Console.WriteLine($"Invoice Total: {data.InvoiceId}, Customer Name: {data.CustomerName}, Country: {data.BillingCountry}, Sales Agent: {data.SalesAgent}");
+            }
 
 
 
