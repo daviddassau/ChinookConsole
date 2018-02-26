@@ -59,6 +59,19 @@ namespace ChinookConsole
                         Console.WriteLine("Press enter to continue");
                         Console.ReadLine();
                         break;
+                    case '3':
+                        // Looking at the InvoiceLine table, provide a query that COUNTs the number 
+                        // of line items for an Invoice with a parameterized Id from user input
+                        Console.Clear();
+                        Console.WriteLine("Enter in the Invoice ID to see all the line items associated with that ID");
+
+                        var invoiceInput = Console.ReadLine();
+                        invoiceQuery = new InvoiceQuery();
+                        var lineItems = invoiceQuery.GetInvoiceLineItems(int.Parse(invoiceInput));
+
+                        Console.WriteLine($"For Invoice ID {invoiceInput}, there are {lineItems} line items");
+
+                        break;
                 }
             }
 
