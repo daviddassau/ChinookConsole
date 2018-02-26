@@ -65,7 +65,10 @@ namespace ChinookConsole
             ConsoleKeyInfo MainMenu()
             {
                 View mainMenu = new View()
-                        .Add
+                        .AddMenuText("Show the invoices associated with each sales agent")
+                        .AddMenuText("Show a list of each customer name and their country, along with their respective sales agent and invoice total")
+
+                Console.Write(mainMenu.GetFullMenu);
             }
         }
     }
