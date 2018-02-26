@@ -53,7 +53,7 @@ namespace ChinookConsole
 
                         foreach (var data in invoiceDetails)
                         {
-                            Console.WriteLine($"Invoice Total: {data.InvoiceId}, Customer Name: {data.CustomerName}, Country: {data.BillingCountry}, Sales Agent: {data.SalesAgent}");
+                            Console.WriteLine($"Invoice Total: {data.Total}, Customer Name: {data.CustomerName}, Country: {data.BillingCountry}, Sales Agent: {data.SalesAgent}");
                         }
 
                         Console.WriteLine("Press enter to continue");
@@ -65,10 +65,13 @@ namespace ChinookConsole
             ConsoleKeyInfo MainMenu()
             {
                 View mainMenu = new View()
-                        .AddMenuText("Show the invoices associated with each sales agent")
-                        .AddMenuText("Show a list of each customer name and their country, along with their respective sales agent and invoice total")
+                        .AddMenuOption("Show the invoices associated with each sales agent")
+                        .AddMenuOption("Show a list of each customer name and their country, along with their respective sales agent and invoice total")
+                        .AddMenuText("Press 0 to exit");
 
-                Console.Write(mainMenu.GetFullMenu);
+                Console.Write(mainMenu.GetFullMenu());
+                ConsoleKeyInfo userOption = Console.ReadKey();
+                return userOption;
             }
         }
     }
