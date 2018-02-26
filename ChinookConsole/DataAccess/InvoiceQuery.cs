@@ -23,7 +23,6 @@ namespace ChinookConsole.DataAccess
                                         join invoice i on i.CustomerId = c.CustomerId";
 
                 connection.Open();
-
                 var reader = cmd.ExecuteReader();
 
                 var employees = new List<SalesAgent>();
@@ -55,6 +54,26 @@ namespace ChinookConsole.DataAccess
                                     from Customer c
                                         join Invoice i on i.CustomerId = c.CustomerId
                                         join Employee e on e.EmployeeId = c.SupportRepId";
+
+                connection.Open();
+                var reader = cmd.ExecuteReader();
+
+                var invoiceData = new List<InvoiceData>();
+
+                while (reader.Read())
+                {
+                    var invoice = new InvoiceData
+                    {
+                        Total = double.Parse(reader["Total"].ToString()),
+                        SalesAgent = reader["Sales Agent"].ToString(),
+                        BillingCountry = reader["BillingCountry"].ToString(),
+                        CustomerName = reader["Customer Name"].ToString()
+                    };
+
+                    invoiceData.Add(invoice);
+                }
+
+                return invoiceData;
             }
         }
     }
