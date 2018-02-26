@@ -42,5 +42,10 @@ namespace ChinookConsole.DataAccess
                 return employees;
             }
         }
+
+        public List<InvoiceData> GetInvoiceTotalCustomerNameCountryAndSalesAgent()
+        {
+
+        }
     }
 }
