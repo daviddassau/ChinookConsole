@@ -45,7 +45,17 @@ namespace ChinookConsole.DataAccess
 
         public List<InvoiceData> GetInvoiceTotalCustomerNameCountryAndSalesAgent()
         {
-
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                var cmd = connection.CreateCommand();
+                cmd.CommandText = @"select c.FirstName + ' ' + c.LastName Name, 
+	                                       c.Country,
+	                                       i.Total,
+	                                       e.FirstName + ' ' + e.LastName as [Sales Agent]
+                                    from Customer c
+                                        join Invoice i on i.CustomerId = c.CustomerId
+                                        join Employee e on e.EmployeeId = c.SupportRepId";
+            }
         }
     }
 }
