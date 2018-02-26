@@ -30,6 +30,7 @@ namespace ChinookConsole
                         var invoiceQuery = new InvoiceQuery();
 
                         var invoices = invoiceQuery.GetInvoiceWithSalesAgentName();
+                        var invoiceDetails = invoiceQuery.GetInvoiceTotalCustomerNameCountryAndSalesAgent();
 
                         Console.WriteLine("Here are all the Sales Agents with their respective Invoice IDs");
 
@@ -41,33 +42,31 @@ namespace ChinookConsole
                         Console.WriteLine("Press enter to continue");
                         Console.ReadLine();
                         break;
+                    case '2':
+                        //Provide a query that shows the Invoice Total, Customer name, Country and Sale Agent name for all invoices.
+                        Console.Clear();
+                        Console.WriteLine("Here's a list of customer names, their country, and the sales agent and invoice total");
+
+                        invoiceQuery = new InvoiceQuery();
+                        invoices = invoiceQuery.GetInvoiceWithSalesAgentName();
+                        invoiceDetails = invoiceQuery.GetInvoiceTotalCustomerNameCountryAndSalesAgent();
+
+                        foreach (var data in invoiceDetails)
+                        {
+                            Console.WriteLine($"Invoice Total: {data.InvoiceId}, Customer Name: {data.CustomerName}, Country: {data.BillingCountry}, Sales Agent: {data.SalesAgent}");
+                        }
+
+                        Console.WriteLine("Press enter to continue");
+                        Console.ReadLine();
+                        break;
                 }
             }
-            
-            
 
-
-
-            ////Provide a query that shows the Invoice Total, Customer name, Country and Sale Agent name for all invoices.
-
-            //var invoiceQuery = new InvoiceQuery();
-
-            //var invoiceData = invoiceQuery.GetInvoiceTotalCustomerNameCountryAndSalesAgent();
-
-            //Console.WriteLine("Here's a list of customer names, their country, and the sales agent and invoice total");
-
-            //foreach (var data in invoiceData)
-            //{
-            //    Console.WriteLine($"Invoice Total: {data.InvoiceId}, Customer Name: {data.CustomerName}, Country: {data.BillingCountry}, Sales Agent: {data.SalesAgent}");
-            //}
-
-
-            
-        }
-
-        private static ConsoleKeyInfo MainMenu()
-        {
-            throw new NotImplementedException();
+            ConsoleKeyInfo MainMenu()
+            {
+                View mainMenu = new View()
+                        .Add
+            }
         }
     }
 }
