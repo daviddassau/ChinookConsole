@@ -76,5 +76,10 @@ namespace ChinookConsole.DataAccess
                 return invoiceData;
             }
         }
+
+        public int GetInvoiceLineItems()
+        {
+
+        }
     }
 }
