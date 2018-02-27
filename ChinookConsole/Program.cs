@@ -73,6 +73,14 @@ namespace ChinookConsole
                         Console.WriteLine("Press enter to continue");
                         Console.ReadLine();
                         break;
+                    case '4':
+                        // INSERT a new invoice with parameters for customerid and billing address
+                        Console.Clear();
+                        Console.WriteLine("");
+
+                        Console.WriteLine("Press enter to continue");
+                        Console.ReadLine();
+                        break;
                 }
             }
 
