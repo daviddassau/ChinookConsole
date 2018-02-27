@@ -29,8 +29,15 @@ namespace ChinookConsole.DataAccess
 
                 var invoiceQuery = new InvoiceQuery();
                 var invoiceId = invoiceQuery.GetLastInvoice() + 1;
+
+                string[] addressInfo = ParseAddressInfo(billingAddress).Reverse().ToArray();
                 
             }
+        }
+
+        string[] ParseAddressInfo(string address)
+        {
+            throw new NotImplementedException();
         }
     }
 }
