@@ -70,7 +70,8 @@ namespace ChinookConsole
                         var lineItems = invoiceQuery.GetInvoiceLineItems(int.Parse(invoiceInput));
 
                         Console.WriteLine($"For Invoice ID {invoiceInput}, there are {lineItems} line items");
-
+                        Console.WriteLine("Press enter to continue");
+                        Console.ReadLine();
                         break;
                 }
             }
