@@ -31,11 +31,22 @@ namespace ChinookConsole.DataAccess
                 var invoiceId = invoiceQuery.GetLastInvoice() + 1;
 
                 string[] addressInfo = ParseAddressInfo(billingAddress).Reverse().ToArray();
+
+                var InvoiceData = InvoiceInfo(addressInfo);
+
+                var newInvoiceId = new SqlParameter(@"invoiceId", SqlDbType.Int);
+                newInvoiceId.Value = invoiceId;
+                cmd.Parameters.Add(newInvoiceId);
                 
             }
         }
 
         string[] ParseAddressInfo(string address)
+        {
+            throw new NotImplementedException();
+        }
+
+        private object InvoiceInfo(string[] addressInfo)
         {
             throw new NotImplementedException();
         }
